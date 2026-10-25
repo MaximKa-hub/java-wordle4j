@@ -17,7 +17,7 @@ public class WordleGame {
     Random random = new Random();
 
     //История пользователя
-    private LinkedHashMap <String, String> userHistory = new LinkedHashMap<>();
+    private LinkedHashMap<String, String> userHistory = new LinkedHashMap<>();
     //идеальное попадание
     private char [] exactPosition = new char[dictionary.WORD_LENGTH];
     //буквы которые пресутствуют ("^" и "+")
@@ -27,10 +27,10 @@ public class WordleGame {
     //Неверная позиция для присутсвующих букв
     private final List<Set<Character>> wrongPositions = new ArrayList<>(dictionary.WORD_LENGTH);
     //Список оставшихся слов
-    private final List <String> availableHints;
+    private final List<String> availableHints;
 
     //попытка начать игру
-    public WordleGame (WordleDictionary dictionary, PrintWriter logs) {
+    public WordleGame(WordleDictionary dictionary, PrintWriter logs) {
         if (dictionary == null || dictionary.isEmpty()) {
             throw new DictionaryIsEmptyException("Словарь пуст, невозможно начать игру. ");
         }
@@ -68,7 +68,7 @@ public class WordleGame {
         return isWon || steps <= 0;
     }
 
-    public boolean isWon () {
+    public boolean isWon() {
         return isWon;
     }
 
@@ -152,9 +152,9 @@ public class WordleGame {
         }
     }
 
-    public void filterAvailableHints () {
-        availableHints.removeIf(hint ->
-        {
+    public void filterAvailableHints() {
+        availableHints.removeIf(hint -> {
+
             if (userHistory.containsKey(hint)) {
                 return true;
             }
@@ -183,7 +183,7 @@ public class WordleGame {
         });
     }
 
-    public String getHint () {
+    public String getHint() {
         filterAvailableHints();
 
         if (availableHints.isEmpty()) {
