@@ -14,8 +14,8 @@ public class Wordle {
 
     public static void main(String[] args) {
 
-        try (PrintWriter logs = new PrintWriter(new FileWriter(LOG_FILE, StandardCharsets.UTF_8),true);
-            Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {
+        try (PrintWriter logs = new PrintWriter(new FileWriter(LOG_FILE, StandardCharsets.UTF_8), true);
+             Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {
 
             logs.println("    Начало игры Wordle!    ");
 
@@ -30,7 +30,7 @@ public class Wordle {
                 e.printStackTrace(logs);
                 System.out.println("Произошла непредвиденая ошибка работы программы, подробности записаны в log. ");
             }
-            } catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("Не удалось создать log файлов: " + e.getMessage());
         }
     }

@@ -13,7 +13,7 @@ public class WordleDictionary {
     private final Random randomWord = new Random();
     public static final int WORD_LENGTH = 5;
 
-    public WordleDictionary (List<String> words,PrintWriter logs) {
+    public WordleDictionary(List<String> words, PrintWriter logs) {
         this.words = words;
         this.logs = logs;
     }
@@ -57,12 +57,12 @@ public class WordleDictionary {
     }
 
     //содержится ли слово
-    public boolean containsWords (String word) {
+    public boolean containsWords(String word) {
         return words.contains(formatWord(word));
     }
 
     //формат слова
-    public static String formatWord (String word) {
+    public static String formatWord(String word) {
         if (word == null) {
             return "";
         }
@@ -73,7 +73,7 @@ public class WordleDictionary {
     public static String checkGuess(String guessWord, String answer) {
 
         LinkedHashMap<Character, Integer> letterCounts = new LinkedHashMap<>();
-        char [] result = new char[WORD_LENGTH];
+        char[] result = new char[WORD_LENGTH];
 
         //записываем буквы в символы
         for (int i = 0; i < WORD_LENGTH; i++) {
@@ -85,8 +85,8 @@ public class WordleDictionary {
         for (int i = 0; i < WORD_LENGTH; i++) {
             char letterChar = guessWord.charAt(i);
             if (letterChar == answer.charAt(i)) {
-                result [i] = '+';
-                letterCounts.put(letterChar, letterCounts.getOrDefault(letterChar,0) -1);
+                result[i] = '+';
+                letterCounts.put(letterChar, letterCounts.getOrDefault(letterChar, 0) - 1);
             }
         }
         //проверяем на неверное расположение или отсутствие
@@ -107,9 +107,9 @@ public class WordleDictionary {
             }
         }
         StringBuilder sb = new StringBuilder(WORD_LENGTH);
-            for (char a : result) {
-                sb.append(a);
-            }
+        for (char a : result) {
+            sb.append(a);
+        }
         return sb.toString();
     }
 

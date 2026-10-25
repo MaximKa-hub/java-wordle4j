@@ -19,7 +19,7 @@ public class WordleGame {
     //История пользователя
     private LinkedHashMap<String, String> userHistory = new LinkedHashMap<>();
     //идеальное попадание
-    private char [] exactPosition = new char[dictionary.WORD_LENGTH];
+    private char[] exactPosition = new char[dictionary.WORD_LENGTH];
     //буквы которые пресутствуют ("^" и "+")
     private Set<Character> presentLetters = new HashSet<>();
     //буквы которые отсутсвуют
@@ -121,8 +121,8 @@ public class WordleGame {
         filterAvailableHints();
 
         logs.println("Ход засчитан: " + word + " -> " + hint + "\n"
-        + "Осталось шагов: " + steps + "\n"
-        + "Доступно подсказок: " + availableHints.size());
+                + "Осталось шагов: " + steps + "\n"
+                + "Доступно подсказок: " + availableHints.size());
         return hint;
     }
 
@@ -195,7 +195,6 @@ public class WordleGame {
         logs.println("Выдана подсказка " + help);
         return help;
     }
-
 
 
 }

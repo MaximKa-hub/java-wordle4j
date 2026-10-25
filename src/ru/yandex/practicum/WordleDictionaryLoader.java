@@ -13,23 +13,23 @@ import java.util.List;
 public class WordleDictionaryLoader {
     private final PrintWriter logs;
 
-    WordleDictionaryLoader (PrintWriter logs) {
+    WordleDictionaryLoader(PrintWriter logs) {
         this.logs = logs;
     }
 
-    public WordleDictionary loadDictionary (String fileName) {
+    public WordleDictionary loadDictionary(String fileName) {
         logs.println("Начала загрузки словаря " + fileName);
-        LinkedHashMap <String, Integer> countUniqueWords = new LinkedHashMap<>();
+        LinkedHashMap<String, Integer> countUniqueWords = new LinkedHashMap<>();
 
         try (FileReader fileReader = new FileReader(fileName, StandardCharsets.UTF_8);
-            BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
 
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String normalized = WordleDictionary.formatWord(line);
 
                 if (WordleDictionary.checkRussianWord(normalized)) {
-                    countUniqueWords.put(normalized, countUniqueWords.getOrDefault(normalized,0) + 1);
+                    countUniqueWords.put(normalized, countUniqueWords.getOrDefault(normalized, 0) + 1);
                 }
             }
 
