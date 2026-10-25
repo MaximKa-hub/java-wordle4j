@@ -21,9 +21,8 @@ public class WordleDictionaryLoader {
         logs.println("Начала загрузки словаря " + fileName);
         LinkedHashMap <String, Integer> countUniqueWords = new LinkedHashMap<>();
 
-        try {
-            FileReader fileReader = new FileReader(fileName, StandardCharsets.UTF_8);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+        try (FileReader fileReader = new FileReader(fileName, StandardCharsets.UTF_8);
+            BufferedReader bufferedReader = new BufferedReader(fileReader)) {
 
             String line;
             while ((line = bufferedReader.readLine()) != null) {

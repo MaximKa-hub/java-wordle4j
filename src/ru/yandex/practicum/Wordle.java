@@ -4,7 +4,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
-import java.util.Dictionary;
 import java.util.Scanner;
 
 
@@ -36,7 +35,7 @@ public class Wordle {
         }
     }
 
-    private static void playGame (WordleGame wordleGame, Scanner scanner, PrintWriter log) {
+    private static void playGame(WordleGame wordleGame, Scanner scanner, PrintWriter log) {
         System.out.println("Добро пожаловать в игру Wordle!");
         System.out.println("Было загадано слово, у вас есть " + wordleGame.MAX_STEPS + " попыток.");
         System.out.println("Для получения подсказки нажмите Enter в пустой строке. \n");
